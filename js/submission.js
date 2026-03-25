@@ -1,9 +1,22 @@
-import { supabase } from "./supabase.js";
-import { createMap } from "./map.js";
+// --- INIT MAP ---
+const map = new maplibregl.Map({
+  container: "map",
+  style: "https://demotiles.maplibre.org/style.json",
+  center: [-0.1276, 51.5072], // London
+  zoom: 10
+});
 
-const { map, draw } = createMap("map");
+// Add drawing tools
+const draw = new MapboxDraw();
+map.addControl(draw);
 
-// Submit handler
+// --- INIT SUPABASE ---
+const SUPABASE_URL = "YOUR_URL";
+const SUPABASE_KEY = "YOUR_KEY";
+
+const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+// --- HANDLE FORM ---
 document.getElementById("submitForm").addEventListener("submit", async (e) => {
   e.preventDefault();
 
@@ -11,49 +24,30 @@ document.getElementById("submitForm").addEventListener("submit", async (e) => {
   const habitatType = document.getElementById("habitatType").value;
   const description = document.getElementById("description").value;
 
-  // Get drawn geometry
-  const geojson = draw.getAll();
-  if (geojson.features.length === 0) {
-    alert("Please draw a feature on the map.");
+  const drawn = draw.getAll();
+
+  if (!drawn.features.length) {
+    alert("Please draw a geometry on the map.");
     return;
   }
 
-  const wkt = Terraformer.WKT.convert(geojson.features[0].geometry);
+  const geometry = drawn.features[0].geometry;
 
-  // Upload file (optional)
-  let filePath = null;
-  const file = document.getElementById("fileInput").files[0];
-
-  if (file) {
-    const fileName = `${crypto.randomUUID()}-${file.name}`;
-    const { data, error } = await supabase.storage
-      .from("uploads")
-      .upload(fileName, file);
-
-    if (error) {
-      alert("File upload failed");
-      return;
-    }
-    filePath = data.path;
-  }
-
-  // Insert into database
-  const { error } = await supabase
-    .from("submissions")
-    .insert({
-      project_name: projectName,
-      habitat_type: habitatType,
-      description: description,
-      file_path: filePath,
-      geom: wkt
-    });
+  const { error } = await supabaseClient
+    .from("habitats")
+    .insert([
+      {
+        name: projectName,
+        habitat: habitatType,
+        description: description,
+        geom: geometry
+      }
+    ]);
 
   if (error) {
     console.error(error);
-    alert("Submission failed");
+    alert("Error saving data");
   } else {
-    alert("Submission successful!");
-    draw.deleteAll();
-    document.getElementById("submitForm").reset();
+    alert("Saved successfully!");
   }
 });
