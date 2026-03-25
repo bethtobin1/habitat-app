@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Submit Habitat Data</title>
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- MapLibre -->
+  <link href="https://unpkg.com/maplibre-gl@3.4.0/dist/maplibre-gl.css" rel="stylesheet" />
+  <script src="https://unpkg.com/maplibre-gl@3.4.0/dist/maplibre-gl.js"></script>
+
+  <!-- Mapbox Draw -->
+  <link href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.4.0/mapbox-gl-draw.css" rel="stylesheet" />
+  <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.4.0/mapbox-gl-draw.js"></script>
+
+  <!-- Turf -->
+  <script src="https://unpkg.com/@turf/turf@6/turf.min.js"></script>
+
+  <!-- Terraformer for WKT -->
+  <script src="https://unpkg.com/terraformer"></script>
+  <script src="https://unpkg.com/terraformer-wkt-parser"></script>
+
+  <!-- Supabase -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js/dist/umd/supabase.min.js"></script>
+</head>
+
+<body>
+  <h1>Submit Habitat Restoration Data</h1>
+
+  <div id="map"></div>
+
+  <form id="submitForm">
+    <label>Project Name</label>
+    <input type="text" id="projectName" required>
+
+    <label>Habitat Type</label>
+    <input type="text" id="habitatType" required>
+
+    <label>Description</label>
+    <textarea id="description"></textarea>
+
+    <label>Upload Spatial File (optional)</label>
+    <input type="file" id="fileInput">
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <script type="module" src="js/submission.js"></script>
+</body>
+</html>
