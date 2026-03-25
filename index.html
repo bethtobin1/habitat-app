@@ -1,27 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Submit Habitat Restoration Data</title>
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="css/styles.css">
+  <!-- CSS for layout -->
+  css/styles.css
 
-  <!-- MapLibre -->
-  <link href="https://unpkg.com/maplibre-gl@3.4.0/distre-gl@3.4.0/dist/maplibre-gl.js
+  <!-- MapLibre CSS + JS -->
+  https://unpkg.com/maplibre-gl@3.4.0/dist/maplibre-gl.css
+  <script src="https://unpkg.com/maplibre-gl@3.4.0/dist/maplibre-gl.js"></script>
 
-  <!-- Mapbox Draw -->
-  https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.4.0/mapbox-gl-draw.css
-  https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.4.0/mapbox-gl-draw.js
+  <!-- Mapbox-Draw (works with MapLibre) -->
+  <link
+    href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.4.0/mapbox-gl-draw.css"
+    rel="stylesheet"
+  />
+  <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.4.0/mapbox-gl-draw.js"></script>
 
-  <!-- Turf -->
+  <!-- Turf.js -->
   <script src="https://unpkg.com/@turf/turf@6/turf.min.js"></script>
 
-  <!-- Terraformer (WKT parser) -->
-  <script src="https://unpkg.com/terraformer"></script>
-  <script src="https://unpkg.com/terraformer-wkt-parser"></script>
+  <!-- Terraformer for WKT parsing -->
+  <script src="https://unpkg.com/terraformer@1.0.12"></script>
+  <script src="https://unpkg.com/terraformer-wkt-parser@1.2.1"></script>
 
-  <!-- Supabase -->
+  <!-- Supabase (UMD browser version) -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 
@@ -46,8 +50,7 @@
     <button type="submit">Submit</button>
   </form>
 
-  <!-- Your custom JS -->
+  <!-- Your application JS (must load last) -->
   <script type="module" src="js/submission.js"></script>
-
 </body>
 </html>
