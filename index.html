@@ -4,24 +4,25 @@
   <meta charset="UTF-8">
   <title>Submit Habitat Restoration Data</title>
 
+  <!-- CSS -->
   css/styles.css
 
   <!-- MapLibre -->
   https://unpkg.com/maplibre-gl@3.4.0/dist/maplibre-gl.css
-  https://unpkg.com/maplibre-gl@3.4.0/dist/maplibre-gl.js
+  <script src="https://unpkg.com/maplibre-gl@3.4.0/dist/maplibre-gl.js"></script>
 
   <!-- Mapbox Draw -->
-  <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.4.0/mapbox-gl-draw.css" />
+  <link href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.4.0/mapbox-gl-draw.css" rel="stylesheet" />
   <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.4.0/mapbox-gl-draw.js"></script>
 
-  <!-- Turf -->
+  <!-- Turf.js -->
   <script src="https://unpkg.com/@turf/turf@6/turf.min.js"></script>
 
-  <!-- Terraformer for WKT -->
+  <!-- Terraformer (WKT Parser) -->
   <script src="https://unpkg.com/terraformer"></script>
   <script src="https://unpkg.com/terraformer-wkt-parser"></script>
 
-  <!-- Supabase (UMD version for browser) -->
+  <!-- Supabase JS (UMD) -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 
@@ -46,7 +47,7 @@
     <button type="submit">Submit</button>
   </form>
 
-  <!-- Load our app code last -->
+  <!-- App JavaScript -->
   <script type="module" src="js/submission.js"></script>
 </body>
 </html>
