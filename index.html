@@ -1,15 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Submit Habitat Data</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <meta charset="UTF-8">
+  <title>Submit Habitat Restoration Data</title>
+
+  css/styles.css
 
   <!-- MapLibre -->
-  <link href="https://unpkg.com/maplibre-gl@3.4.0/dist/maplibre-gl.css" rel="stylesheet" />
-  <script src="https://unpkg.com/maplibre-gl@3.4.0/dist/maplibre-gl.js"></script>
+  https://unpkg.com/maplibre-gl@3.4.0/dist/maplibre-gl.css
+  https://unpkg.com/maplibre-gl@3.4.0/dist/maplibre-gl.js
 
   <!-- Mapbox Draw -->
-  <link href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.4.0/mapbox-gl-draw.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.4.0/mapbox-gl-draw.css" />
   <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.4.0/mapbox-gl-draw.js"></script>
 
   <!-- Turf -->
@@ -19,8 +21,8 @@
   <script src="https://unpkg.com/terraformer"></script>
   <script src="https://unpkg.com/terraformer-wkt-parser"></script>
 
-  <!-- Supabase -->
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js/dist/umd/supabase.min.js"></script>
+  <!-- Supabase (UMD version for browser) -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 
 <body>
@@ -44,6 +46,7 @@
     <button type="submit">Submit</button>
   </form>
 
+  <!-- Load our app code last -->
   <script type="module" src="js/submission.js"></script>
 </body>
 </html>
