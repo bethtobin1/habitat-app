@@ -4,31 +4,20 @@
   <meta charset="UTF-8" />
   <title>Submit Habitat Restoration Data</title>
 
-  <!-- CSS for layout -->
-<link rel="stylesheet" href="css/styles.css" />
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/styles.css" />
 
-<link
-  href="https://unpkg.com/maplibre-gl@3.4.0/dist/maplibre-gl.css"
-  rel="stylesheet"
-/>
-  <script src="https://unpkg.com/maplibre-gl@3.4.0/dist/maplibre-gl.js"></script>
+  <!-- MapLibre -->
+  <link
+    href="https://unpkg.com/maplibre-gl@3.4.0/dist/maplibre-gl.css"
+    rel="stylesheet"
+  />
 
-  <!-- Mapbox-Draw (works with MapLibre) -->
+  <!-- Mapbox Draw -->
   <link
     href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.4.0/mapbox-gl-draw.css"
     rel="stylesheet"
   />
-  <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.4.0/mapbox-gl-draw.js"></script>
-
-  <!-- Turf.js -->
-  <script src="https://unpkg.com/@turf/turf@6/turf.min.js"></script>
-
-  <!-- Terraformer for WKT parsing -->
-  <script src="https://unpkg.com/terraformer@1.0.12"></script>
-  <script src="https://unpkg.com/terraformer-wkt-parser@1.2.1"></script>
-
-  <!-- Supabase (UMD browser version) -->
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 
 <body>
@@ -52,7 +41,15 @@
     <button type="submit">Submit</button>
   </form>
 
-  <!-- Your application JS (must load last) -->
-  <script type="module" src="js/submission.js"></script>
+  <!-- JS LIBRARIES (order matters!) -->
+  <script src="https://unpkg.com/maplibre-gl@3.4.0/dist/maplibre-gl.js"></script>
+  <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.4.0/mapbox-gl-draw.js"></script>
+  <script src="https://unpkg.com/@turf/turf@6/turf.min.js"></script>
+  <script src="https://unpkg.com/terraformer@1.0.12"></script>
+  <script src="https://unpkg.com/terraformer-wkt-parser@1.2.1"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <!-- YOUR SCRIPT LAST -->
+  <script src="js/submission.js"></script>
 </body>
 </html>
